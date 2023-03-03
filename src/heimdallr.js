@@ -1,26 +1,33 @@
-const { Client, IntentsBitField, Partials } = require('discord.js')
-const WOK = require('wokcommands')
+const { Client, IntentsBitField } = require('discord.js')
 const path = require('path')
+const mongoose = require('mongoose')
+const WOK = require('wokcommands')
 const pc = require('picocolors')
 
 const client = new Client({
   intents: [
     IntentsBitField.Flags.Guilds,
     IntentsBitField.Flags.GuildMessages,
-    IntentsBitField.Flags.DirectMessages,
     IntentsBitField.Flags.MessageContent,
   ],
-  partials: [Partials.Channel],
 })
 
-client.on('ready', () => {
+client.on('ready', async () => {
+  console.log(pc.bgGreen('Heimdallr has begun watching!'))
+
+  mongoose.set('strictQuery', false)
+  mongoose.connect(process.env.MONGO_URI, {
+    keepAlive: true,
+  })
+
   new WOK({
     client,
+    mongoUri: process.env.MONGO_URI,
     commandsDir: path.join(__dirname, 'commands'),
-    validations: {
-      syntax: path.join(__dirname, 'validations', 'syntax'),
+    featuresDir: path.join(__dirname, 'features'),
+    events: {
+      dir: path.join(__dirname, 'events'),
     },
-    mongoUri: process.env.DATABASE,
     testServers: [process.env.DEV_SERVER],
     botOwners: [process.env.OWNERS],
     disabledDefaultCommands: [],
@@ -30,8 +37,6 @@ client.on('ready', () => {
       dbRequired: 300,
     },
   })
-
-  console.log(pc.bgGreen('Heimdallr has begun watching!'))
 })
 
 client.login(process.env.TOKEN)

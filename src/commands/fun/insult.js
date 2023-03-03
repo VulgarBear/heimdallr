@@ -1,6 +1,6 @@
 const { CommandType } = require('wokcommands')
 
-const funHelper = require('../../utils/funHelper')
+const funHelper = require('../../util/funHelper')
 
 module.exports = {
   type: CommandType.SLASH,

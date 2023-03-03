@@ -1,7 +1,7 @@
 const { CommandType } = require('wokcommands')
 const { EmbedBuilder } = require('discord.js')
 
-const funHelper = require('../../utils/funHelper')
+const funHelper = require('../../util/funHelper')
 
 module.exports = {
   type: CommandType.SLASH,
