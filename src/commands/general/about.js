@@ -5,12 +5,12 @@ module.exports = {
   type: CommandType.SLASH,
   description: 'General information about Heimdallr',
   guildOnly: false,
-  testOnly: true,
+  testOnly: false,
 
   callback: async ({ interaction }) => {
     const aboutEmbed = new EmbedBuilder()
       .setColor(process.env.EMBED)
-      .setTitle('About Heim')
+      .setTitle('About Heim - BETA')
       .setURL('https://top.gg/bot/391050398850613250')
       .setDescription(
         `Heimdallr-v2 is developed by VulgarBear#2617 and is a rewritten version of the original Heimdallr as the previous framework was very outdated..\n
