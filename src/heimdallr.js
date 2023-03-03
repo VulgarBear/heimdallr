@@ -1,7 +1,7 @@
 const { Client, IntentsBitField } = require('discord.js')
 const path = require('path')
 const mongoose = require('mongoose')
-const WOK = require('wokcommands')
+const WOK = require('@vulgarbear/jotunn_commands')
 const pc = require('picocolors')
 
 require('dotenv/config')
