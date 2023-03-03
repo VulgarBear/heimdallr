@@ -816,13 +816,6 @@
   dependencies:
     "@types/node" "*"
 
-"@vulgarbear/jotunn_commands@https://github.com/VulgarBear/jotunn_commands.git":
-  version "1.0.0"
-  resolved "https://github.com/VulgarBear/jotunn_commands.git#a710bd4ce0f464cbbe1f317638ec641054a1fd00"
-  dependencies:
-    discord.js "^14.0.2"
-    mongoose "^6.7.1"
-
 asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
@@ -985,6 +978,14 @@ ip@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ip/-/ip-2.0.0.tgz#4cf4ab182fee2314c75ede1276f8c80b479936da"
   integrity sha512-WKa+XuLG1A1R0UWhl2+1XQSi+fZWMsYKffMZTTYsiZaUD8k2yDAj5atimTUD2TZkyCkNEeYE5NhFZmupOGtjYQ==
+
+jotunn_commands@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/jotunn_commands/-/jotunn_commands-1.0.1.tgz#2c43c378ece2471d5053a00d5ebd5c3e07ffb5f9"
+  integrity sha512-ZE2cXQSvXP34mXRftaHn5zWLz1oJ/3g9vuysOPy0brKa4QicbY+Ibj2dZvPMo1WXvP+sqOoHALGGW9aQM91inA==
+  dependencies:
+    discord.js "^14.0.2"
+    mongoose "^6.7.1"
 
 kareem@2.5.0:
   version "2.5.0"

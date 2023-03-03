@@ -1,7 +1,7 @@
 const { Client, IntentsBitField } = require('discord.js')
 const path = require('path')
 const mongoose = require('mongoose')
-const WOK = require('@vulgarbear/jotunn_commands')
+const JC = require('jotunn_commands')
 const pc = require('picocolors')
 
 require('dotenv/config')
@@ -18,7 +18,7 @@ client.on('ready', async () => {
     keepAlive: true,
   })
 
-  new WOK({
+  new JC({
     client,
     mongoUri: process.env.MONGO_URI,
     commandsDir: path.join(__dirname, 'commands'),

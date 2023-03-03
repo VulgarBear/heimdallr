@@ -11,11 +11,11 @@
     "dev": "nodemon -L src/heimdallr.js"
   },
   "dependencies": {
-    "@vulgarbear/jotunn_commands": "https://github.com/VulgarBear/jotunn_commands.git",
     "axios": "^1.2.1",
     "booru": "^2.6.3",
     "discord.js": "^14.7.1",
     "dotenv": "^16.0.3",
+    "jotunn_commands": "^1.0.1",
     "mongoose": "^7.0.0",
     "picocolors": "^1.0.0",
     "wokcommands": "^2.1.0"
