@@ -3,7 +3,7 @@ const { prefix } = require('../../../features/button-roles')
 module.exports = async (interaction) => {
   const { customId, member, guild } = interaction
 
-  if (!member || !customId.startsWith(prefix)) {
+  if (!member || !interaction.isButton() || !customId.startsWith(prefix)) {
     return
   }
 

@@ -1,7 +1,7 @@
 const { Client, IntentsBitField } = require('discord.js')
 const path = require('path')
 const mongoose = require('mongoose')
-const JC = require('jotunn_commands')
+const JC = require('wokcommands')
 const pc = require('picocolors')
 
 require('dotenv/config')
