@@ -4,7 +4,7 @@ services:
     heimdallr:
         build:
           context: ../
-          dockerfile: ./heimdallr/Dockerfile
+          dockerfile: ./docker/heimdallr/Dockerfile
         restart: unless-stopped
         environment:
           TOKEN:

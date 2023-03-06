@@ -2,7 +2,6 @@ const axios = require('axios')
 
 // 8ball
 // Generates random 8ball result
-
 const eightBall = async () => {
   const answers = [
     'It is certain',
@@ -37,7 +36,6 @@ const eightBall = async () => {
 // foxURL: 'https://randomfox.ca/floof/'
 // catURL: 'https://api.thecatapi.com/v1/images/search'
 // birbURL: 'http://shibe.online/api/birds?&urls=true&httpsUrls=true'
-
 const cute = async (type) => {
   if (type === 'dog') {
     const dogSearch = await axios.get('https://random.dog/doggos')
@@ -77,8 +75,32 @@ const insult = async () => {
   return insultData
 }
 
+// Kitsu Helper
+// Get's anime or manga information based on command useage.
+
+const kitsu = async (type, name) => {
+  const MANGA_URL = 'https://kitsu.io/api/edge/manga'
+
+  if (type === 'anime') {
+    let res = await axios.get(
+      `http://kitsu.io/api/edge/anime?filter[text]=${name}&page[limit]=1&json=true`
+    )
+
+    let searchData = res.data.data[0]
+    return searchData
+  } else if (type === 'manga') {
+    let res = await axios.get(`${MANGA_URL}?filter[text]=${name}&page[limit]=1`)
+
+    let searchData = res.data.data[0]
+    return searchData
+  } else {
+    return
+  }
+}
+
 module.exports = {
   eightBall,
   insult,
   cute,
+  kitsu,
 }
