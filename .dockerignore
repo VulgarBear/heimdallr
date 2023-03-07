@@ -2,3 +2,5 @@ node_modules
 npm-debug.log
 .env
 /docker/docker-compose.yml
+yarn-error.log
+yarn.lock
