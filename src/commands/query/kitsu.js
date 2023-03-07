@@ -9,7 +9,7 @@ module.exports = {
   guildOnly: true,
   minArgs: 2,
   expectedArgs: ' Ask your question.',
-  testOnly: true,
+  testOnly: false,
   options: [
     {
       name: 'type',
