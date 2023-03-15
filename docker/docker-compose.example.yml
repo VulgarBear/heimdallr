@@ -2,23 +2,24 @@ version: "3.7"
 
 services:
     heimdallr:
+        container_name: heimdallr_main
         build:
-          context: ../
-          dockerfile: ./docker/heimdallr/Dockerfile
+            context: ../
+            dockerfile: ./docker/heimdallr/Dockerfile
         restart: unless-stopped
         environment:
-          TOKEN:
-          CLIENT_ID:
-          DEV_SERVER:
-          OWNERS:
-          PREFIX:
-          MONGO_URI:
-          EMBED:
-          IMGUR_API:
-          IGDB_API:
-          TWITCH_ID:
-          TWITCH_AUTH:
-          TMDB_API:
-          DREP_API:
-          BOT_ID:
-          TOP_API:
+            TOKEN:
+            CLIENT_ID:
+            DEV_SERVER:
+            OWNERS:
+            PREFIX:
+            MONGO_URI:
+            EMBED:
+            IMGUR_API:
+            IGDB_API:
+            TWITCH_ID:
+            TWITCH_AUTH:
+            TMDB_API:
+            DREP_API:
+            BOT_ID:
+            TOP_API:
