@@ -75,21 +75,6 @@ module.exports = {
           })
           return
         }
-        // =========================
-        // Helpers
-        // =========================
-
-        /**
-         * Convert number to currency format
-         * @param {number} num
-         * @returns {string}
-         */
-        function toCurrency(num) {
-          const price = Number.parseFloat(num).toFixed(2)
-
-          return price > 0 ? `$${price}` : 'FREE'
-        }
-        return
       }
 
       // Can't rely on user input for the formal game name.

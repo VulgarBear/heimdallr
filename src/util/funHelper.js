@@ -98,9 +98,49 @@ const kitsu = async (type, name) => {
   }
 }
 
+const tmdb = async (type, name) => {
+  if (type === 'movie') {
+    const movieSearch = await axios.get(
+      'https://api.themoviedb.org/3/search/movie?api_key=' +
+        process.env.TMDB +
+        '&query=' +
+        name +
+        '&page=1&include_adult=false'
+    )
+
+    const movieData = movieSearch.data.results[0]
+    return movieData
+  } else if (type === 'series') {
+    const seriesSearch = await axios.get(
+      'https://api.themoviedb.org/3/search/tv?api_key=' +
+        process.env.TMDB +
+        '&query=' +
+        name +
+        '&page=1'
+    )
+
+    const seriesData = seriesSearch.data.results[0]
+    return seriesData
+  } else if (type === 'actor') {
+    const actorSearch = await axios.get(
+      'https://api.themoviedb.org/3/search/person?api_key=' +
+        process.env.TMDB +
+        '&query=' +
+        name +
+        '&page=1&include_adult=false'
+    )
+
+    const actorData = actorSearch.data.results[0]
+    return actorData
+  } else {
+    return
+  }
+}
+
 module.exports = {
   eightBall,
   insult,
   cute,
   kitsu,
+  tmdb,
 }
