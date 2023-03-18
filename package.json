@@ -1,6 +1,6 @@
 {
   "name": "Heimdallr",
-  "version": "1.0.0",
+  "version": "0.8.0",
   "description": "Multipurpose discord server bot.",
   "main": "src/index.js",
   "author": "VulgarBear",
