@@ -15,14 +15,14 @@ module.exports = {
       name: 'type',
       description: 'Are you looking up an anime or manga?',
       type: 3,
-      required: true,
+      required: true
     },
     {
       name: 'title',
       description: 'What is the title name of the anime/manga?',
       type: 3,
-      required: true,
-    },
+      required: true
+    }
   ],
 
   callback: async ({ interaction }) => {
@@ -31,7 +31,7 @@ module.exports = {
       .getString('type')
       .toLowerCase()
     const titleName = await interaction.options.getString('title')
-    let author = await interaction.guild.members.fetch(interaction.user.id)
+    const author = await interaction.guild.members.fetch(interaction.user.id)
 
     try {
       if (contentType === 'anime') {
@@ -52,13 +52,13 @@ module.exports = {
           )
           .setColor(process.env.EMBED)
           .setFooter({
-            text: `Requested by ${author.user.username} | Kitsu.io API`,
+            text: `Requested by ${author.user.username} | Kitsu.io API`
           })
           .setThumbnail(animeData.attributes.posterImage.small)
 
         interaction.reply({
           content: '',
-          embeds: [animeEmbed],
+          embeds: [animeEmbed]
         })
       } else if (contentType === 'manga') {
         const mangaData = await funHelper.kitsu(contentType, titleName)
@@ -74,26 +74,26 @@ module.exports = {
           )
           .setColor(process.env.EMBED)
           .setFooter({
-            text: `Requested by ${author.user.username} | Kitsu.io API`,
+            text: `Requested by ${author.user.username} | Kitsu.io API`
           })
           .setThumbnail(mangaData.attributes.posterImage.small)
 
         interaction.reply({
           content: '',
-          embeds: [mangaEmbed],
+          embeds: [mangaEmbed]
         })
       } else {
         interaction.reply({
           content: 'Something went wrong!',
-          ephemeral: true,
+          ephemeral: true
         })
       }
     } catch (err) {
       interaction.reply({
         content: 'Something went wrong!',
-        ephemeral: true,
+        ephemeral: true
       })
       return console.log(err)
     }
-  },
+  }
 }

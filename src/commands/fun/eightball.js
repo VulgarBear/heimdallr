@@ -15,14 +15,14 @@ module.exports = {
       name: 'question',
       description: 'The question you would like to ask.',
       required: true,
-      type: 3,
-    },
+      type: 3
+    }
   ],
 
   callback: async ({ interaction, args }) => {
     // Setup variables
     const question = args[0]
-    let author = await interaction.guild.members.fetch(interaction.user.id)
+    const author = await interaction.guild.members.fetch(interaction.user.id)
 
     // Gather answer response from helper
     const answer = await funHelper.eightBall()
@@ -39,7 +39,7 @@ module.exports = {
 
     interaction.reply({
       content: '',
-      embeds: [questionEmbed],
+      embeds: [questionEmbed]
     })
-  },
+  }
 }

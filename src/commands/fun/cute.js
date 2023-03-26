@@ -16,14 +16,14 @@ module.exports = {
       description:
         'What kind of cuteness are your looking for? (dog, cat, fox, or bird)',
       required: true,
-      type: 3,
-    },
+      type: 3
+    }
   ],
 
   callback: async ({ interaction, args }) => {
     // Setup variables
     const cuteType = args[0]
-    let author = await interaction.guild.members.fetch(interaction.user.id)
+    const author = await interaction.guild.members.fetch(interaction.user.id)
 
     // Using helper file to call API based on type.
     try {
@@ -31,15 +31,15 @@ module.exports = {
 
       // Select API source based on type
       if (cuteType === 'dog') {
-        let sourceAPI = 'random.dog'
+        const sourceAPI = 'random.dog'
       } else if (cuteType === 'fox') {
-        let sourceAPI = 'randomfox.ca'
+        const sourceAPI = 'randomfox.ca'
       } else if (cuteType === 'cat') {
-        let sourceAPI = 'thecatapi.com'
+        const sourceAPI = 'thecatapi.com'
       } else if (cuteType === 'bird') {
-        let sourceAPI = 'shibe.online'
+        const sourceAPI = 'shibe.online'
       } else {
-        let sourceAPI = ''
+        const sourceAPI = ''
       }
 
       const cuteEmbed = new EmbedBuilder()
@@ -51,14 +51,14 @@ module.exports = {
 
       interaction.reply({
         content: '',
-        embeds: [cuteEmbed],
+        embeds: [cuteEmbed]
       })
     } catch (err) {
       interaction.reply({
         content: 'Something went wrong!',
-        ephemeral: true,
+        ephemeral: true
       })
       console.log(err)
     }
-  },
+  }
 }

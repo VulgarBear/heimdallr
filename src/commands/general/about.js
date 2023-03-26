@@ -24,8 +24,8 @@ module.exports = {
       console.log('command ran')
       interaction.reply({
         content: '',
-        embeds: [aboutEmbed],
+        embeds: [aboutEmbed]
       })
     }
-  },
+  }
 }

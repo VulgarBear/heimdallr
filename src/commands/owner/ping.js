@@ -8,7 +8,7 @@ module.exports = {
   callback: () => {
     return {
       content: 'Pong!',
-      ephemeral: true,
+      ephemeral: true
     }
-  },
+  }
 }

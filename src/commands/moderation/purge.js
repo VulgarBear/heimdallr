@@ -14,28 +14,28 @@ module.exports = {
       name: 'amount',
       description: 'The number of messages you would like to delete',
       required: true,
-      type: 10,
-    },
+      type: 10
+    }
   ],
 
   callback: async ({ interaction, args }) => {
     // Set args
-    let amount = args[0]
+    const amount = args[0]
 
     // Set hard limit for amount of messages to purge.
     if (amount > 99) {
       interaction.reply({
         content: String('Unable to delete over 99 messages at one time.'),
-        ephemeral: true,
+        ephemeral: true
       })
     } else {
       // Get size of deleted messages.
       try {
         // Attempt to delete messages.
-        let { size } = await interaction.channel.bulkDelete(amount)
+        const { size } = await interaction.channel.bulkDelete(amount)
         await interaction.reply({
           content: String(`Deleted ${size} messages.`),
-          ephemeral: true,
+          ephemeral: true
         })
       } catch (err) {
         console.log(err)
@@ -43,9 +43,9 @@ module.exports = {
           content: String(
             'An error occured, please make sure there are no messages over 14 days old included.'
           ),
-          ephemeral: true,
+          ephemeral: true
         })
       }
     }
-  },
+  }
 }

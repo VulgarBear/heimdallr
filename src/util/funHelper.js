@@ -23,7 +23,7 @@ const eightBall = async () => {
     'My reply is no',
     'My sources say no',
     'Outlook not so good',
-    'Very doubtful',
+    'Very doubtful'
   ]
 
   const answer = answers[Math.floor(Math.random() * answers.length)]
@@ -82,19 +82,19 @@ const kitsu = async (type, name) => {
   const MANGA_URL = 'https://kitsu.io/api/edge/manga'
 
   if (type === 'anime') {
-    let res = await axios.get(
+    const res = await axios.get(
       `http://kitsu.io/api/edge/anime?filter[text]=${name}&page[limit]=1&json=true`
     )
 
-    let searchData = res.data.data[0]
+    const searchData = res.data.data[0]
     return searchData
   } else if (type === 'manga') {
-    let res = await axios.get(`${MANGA_URL}?filter[text]=${name}&page[limit]=1`)
+    const res = await axios.get(`${MANGA_URL}?filter[text]=${name}&page[limit]=1`)
 
-    let searchData = res.data.data[0]
+    const searchData = res.data.data[0]
     return searchData
   } else {
-    return
+
   }
 }
 
@@ -133,7 +133,7 @@ const tmdb = async (type, name) => {
     const actorData = actorSearch.data.results[0]
     return actorData
   } else {
-    return
+
   }
 }
 
@@ -142,5 +142,5 @@ module.exports = {
   insult,
   cute,
   kitsu,
-  tmdb,
+  tmdb
 }

@@ -2,7 +2,7 @@ const { Schema, model, models } = require('mongoose')
 
 const reqString = {
   type: String,
-  required: true,
+  required: true
 }
 
 const statusesSchema = new Schema({
@@ -10,8 +10,8 @@ const statusesSchema = new Schema({
   duration: reqString,
   activityType: {
     type: String,
-    default: 'Playing',
-  },
+    default: 'Playing'
+  }
 })
 
 const name = 'statuses'

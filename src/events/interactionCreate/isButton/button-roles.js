@@ -12,8 +12,8 @@ module.exports = async (interaction) => {
   const role = await guild.roles.fetch(roleId)
   if (!role) {
     interaction.reply({
-      content: `The role associated with this button does not exist. Please report this to a staff member in this server.`,
-      ephemeral: true,
+      content: 'The role associated with this button does not exist. Please report this to a staff member in this server.',
+      ephemeral: true
     })
     return
   }
@@ -23,14 +23,14 @@ module.exports = async (interaction) => {
 
     interaction.reply({
       content: `You no longer have <@&${roleId}>`,
-      ephemeral: true,
+      ephemeral: true
     })
   } else {
     member.roles.add(roleId)
 
     interaction.reply({
       content: `You now have <@&${roleId}>`,
-      ephemeral: true,
+      ephemeral: true
     })
   }
 }

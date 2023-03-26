@@ -14,7 +14,7 @@ module.exports = async (_, client) => {
     return formatStatus(status._doc)
   })
   let index = 0
-  //console.log(statuses)
+  // console.log(statuses)
 
   statusSchema.watch().on('change', async (data) => {
     console.log(data)
@@ -28,14 +28,14 @@ module.exports = async (_, client) => {
     } else if (operationType === 'update') {
       const {
         documentKey: { _id },
-        updateDescription: { updatedFields },
+        updateDescription: { updatedFields }
       } = data
 
       statuses = statuses.map((status) => {
         if (String(status._id) === String(_id)) {
           status = {
             ...status,
-            ...updatedFields,
+            ...updatedFields
           }
         }
 
@@ -43,19 +43,19 @@ module.exports = async (_, client) => {
       })
     } else if (operationType === 'delete') {
       const {
-        documentKey: { _id },
+        documentKey: { _id }
       } = data
 
       statuses = statuses.filter((status) => String(status._id) !== String(_id))
     }
 
-    //console.log(statuses)
+    // console.log(statuses)
   })
 
   const updateStatuses = () => {
     if (statuses.length === 0) {
       client.user.setPresence({
-        activities: null,
+        activities: null
       })
 
       setTimeout(updateStatuses, 1000 * 10)
@@ -71,9 +71,9 @@ module.exports = async (_, client) => {
       activities: [
         {
           name: status.text,
-          type: ActivityType.valueOf()[status.activityType],
-        },
-      ],
+          type: ActivityType.valueOf()[status.activityType]
+        }
+      ]
     })
 
     ++index

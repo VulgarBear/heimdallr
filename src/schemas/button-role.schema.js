@@ -2,7 +2,7 @@ const { Schema, model, models } = require('mongoose')
 
 const reqString = {
   type: String,
-  required: true,
+  required: true
 }
 
 const buttonRoleSchema = new Schema({
@@ -15,8 +15,8 @@ const buttonRoleSchema = new Schema({
       roleId: reqString,
       buttonText: reqString,
       buttonStyle: reqString,
-      buttonEmoji: reqString,
-    },
+      buttonEmoji: reqString
+    }
   ],
 
   // Role message
@@ -24,9 +24,9 @@ const buttonRoleSchema = new Schema({
   text: reqString,
   hexColor: {
     type: String,
-    default: 'Random',
+    default: 'Random'
   },
-  messageId: String,
+  messageId: String
 })
 
 const name = 'button-roles'

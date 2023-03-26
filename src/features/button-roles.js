@@ -46,7 +46,7 @@ module.exports = async (_, client) => {
 
         message.edit({
           embeds: [embed],
-          components,
+          components
         })
 
         return
@@ -55,7 +55,7 @@ module.exports = async (_, client) => {
 
     const message = await channel.send({
       embeds: [embed],
-      components,
+      components
     })
 
     await buttonRoleSchema.updateOne({ _id }, { messageId: message.id })

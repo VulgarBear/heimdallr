@@ -16,14 +16,14 @@ module.exports = {
       name: 'type',
       description: 'Movie, Series, or Actor?',
       type: 3,
-      required: true,
+      required: true
     },
     {
       name: 'name',
       description: 'Name to search for?',
       type: 3,
-      required: true,
-    },
+      required: true
+    }
   ],
 
   callback: async ({ interaction }) => {
@@ -43,7 +43,7 @@ module.exports = {
           .setTitle(movieData.title)
           .setColor(process.env.EMBED)
           .setFooter({
-            text: `Requested by ${author.user.username} | TMDB API`,
+            text: `Requested by ${author.user.username} | TMDB API`
           })
           .setDescription(movieData.overview)
           .setThumbnail(
@@ -53,22 +53,22 @@ module.exports = {
             {
               name: 'User Rating',
               value: movieData.vote_average.toFixed(1) + '/10',
-              inline: true,
+              inline: true
             },
             {
               name: 'Release Date',
               value: movieData.release_date,
-              inline: true,
+              inline: true
             },
             {
               name: 'More Infor',
-              value: `[TMDB](https://www.themoviedb.org/movie/${movieData.id})`,
+              value: `[TMDB](https://www.themoviedb.org/movie/${movieData.id})`
             }
           )
 
         return interaction.reply({
           content: '',
-          embeds: [movieEmbed],
+          embeds: [movieEmbed]
         })
       } else if (searchType === 'series') {
         const seriesData = await funHelper.tmdb(searchType, searchName)
@@ -77,7 +77,7 @@ module.exports = {
           .setTitle(seriesData.name)
           .setColor(process.env.EMBED)
           .setFooter({
-            text: `Requested by ${author.user.username} | TMDB API`,
+            text: `Requested by ${author.user.username} | TMDB API`
           })
           .setDescription(seriesData.overview)
           .setThumbnail(
@@ -87,22 +87,22 @@ module.exports = {
             {
               name: 'User Rating',
               value: seriesData.vote_average.toFixed(1) + '/10',
-              inline: true,
+              inline: true
             },
             {
               name: 'Air Date',
               value: seriesData.first_air_date,
-              inline: true,
+              inline: true
             },
             {
               name: 'More Info',
-              value: `[TMDB](https://www.themoviedb.org/tv/${seriesData.id})`,
+              value: `[TMDB](https://www.themoviedb.org/tv/${seriesData.id})`
             }
           )
 
         return interaction.reply({
           content: '',
-          embeds: [seriesEmbed],
+          embeds: [seriesEmbed]
         })
       } else if (searchType === 'actor') {
         const actorData = await funHelper.tmdb(searchType, searchName)
@@ -111,7 +111,7 @@ module.exports = {
           .setTitle(actorData.name)
           .setColor(process.env.EMBED)
           .setFooter({
-            text: `Requested by ${author.user.username} | TMDB API`,
+            text: `Requested by ${author.user.username} | TMDB API`
           })
           .setThumbnail(
             'https://image.tmdb.org/t/p/w500' + actorData.profile_path
@@ -119,31 +119,31 @@ module.exports = {
           .addFields(
             {
               name: 'Known For',
-              value: `${actorData.known_for[0].title}, ${actorData.known_for[1].title}, ${actorData.known_for[2].title}`,
+              value: `${actorData.known_for[0].title}, ${actorData.known_for[1].title}, ${actorData.known_for[2].title}`
             },
             {
               name: 'More Info',
-              value: `[TMDB](https://www.themoviedb.org/person/${actorData.id})`,
+              value: `[TMDB](https://www.themoviedb.org/person/${actorData.id})`
             }
           )
 
         return interaction.reply({
           content: '',
-          embeds: [actorEmbed],
+          embeds: [actorEmbed]
         })
       } else {
         interaction.reply({
           content: 'Please enter Movie, Series, or Actor for type.',
-          ephemeral: true,
+          ephemeral: true
         })
         return
       }
     } catch (err) {
       interaction.reply({
         content: 'Something went wrong!',
-        ephemeral: true,
+        ephemeral: true
       })
       return console.log(err)
     }
-  },
+  }
 }

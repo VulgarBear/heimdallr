@@ -13,19 +13,19 @@ module.exports = {
       name: 'user',
       description: '@user that you would like to insult',
       required: true,
-      type: 6,
-    },
+      type: 6
+    }
   ],
 
   callback: async ({ interaction }) => {
-    let member = await interaction.options.getUser('user')
+    const member = await interaction.options.getUser('user')
 
     const insult = await funHelper.insult()
 
     if (interaction) {
       interaction.reply({
-        content: String(`${member} ` + insult),
+        content: String(`${member} ` + insult)
       })
     }
-  },
+  }
 }

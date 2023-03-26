@@ -3,19 +3,20 @@ const path = require('path')
 const mongoose = require('mongoose')
 const JC = require('wokcommands')
 const pc = require('picocolors')
+const logger = require('./util/logger')
 
 require('dotenv/config')
 
 const client = new Client({
-  intents: [IntentsBitField.Flags.Guilds],
+  intents: [IntentsBitField.Flags.Guilds]
 })
 
 client.on('ready', async () => {
-  console.log(pc.bgGreen('Heimdallr has begun watching!'))
+  logger.info('The bot is online')
 
   mongoose.set('strictQuery', false)
   mongoose.connect(process.env.MONGO_URI, {
-    keepAlive: true,
+    keepAlive: true
   })
 
   new JC({
@@ -24,7 +25,7 @@ client.on('ready', async () => {
     commandsDir: path.join(__dirname, 'commands'),
     featuresDir: path.join(__dirname, 'features'),
     events: {
-      dir: path.join(__dirname, 'events'),
+      dir: path.join(__dirname, 'events')
     },
     testServers: [process.env.DEV_SERVER],
     botOwners: [process.env.OWNERS],
@@ -32,8 +33,8 @@ client.on('ready', async () => {
     cooldownConfig: {
       errorMessage: 'Please wait {TIME} before doing that again',
       botOwnerBypass: true,
-      dbRequired: 300,
-    },
+      dbRequired: 300
+    }
   })
 })
 

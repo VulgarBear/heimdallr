@@ -5,7 +5,7 @@ const path = require('path')
 require('dotenv/config')
 
 const manager = new ShardingManager(path.join(__dirname, 'heimdallr.js'), {
-  token: process.env.TOKEN,
+  token: process.env.TOKEN
 })
 
 manager.on('shardCreate', (shard) => {
