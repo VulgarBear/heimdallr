@@ -4,7 +4,15 @@
     <a href="https://github.com/VulgarBear/Heimdallr"> <img src="./assets/images/Heim_Pixel.png" /> </a>
   </p>
   <p>
+  <a href="https://discord.gg/E9cJjvw"><img src="https://discordapp.com/api/guilds/540671346728763392/widget.png?style=shield" alt="Discord Server"></a>
+  <img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/vulgarbear/heimdallr">
+  <img alt="Docker Image Version (latest by date)" src="https://img.shields.io/docker/v/vulgarbear/heimdallr?label=docker%20ver.">
+  <img alt="Docker Image Size with architecture (latest by date/latest semver)" src="https://img.shields.io/docker/image-size/vulgarbear/heimdallr">
 
+
+  <img alt="CircleCI" src="https://img.shields.io/circleci/build/github/VulgarBear/Heimdallr">
+  <img alt="CodeFactor Grade" src="https://img.shields.io/codefactor/grade/github/vulgarbear/heimdallr">
+  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/vulgarbear/heimdallr">
   </p>
 </div>
 
