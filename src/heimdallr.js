@@ -12,7 +12,7 @@ const client = new Client({
 })
 
 client.on('ready', async () => {
-  logger.info('The bot is online')
+  logger.info('Heimdallr has begun watching')
 
   mongoose.set('strictQuery', false)
   mongoose.connect(process.env.MONGO_URI, {

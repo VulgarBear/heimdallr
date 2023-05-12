@@ -7,7 +7,7 @@
   "license": "Unlicense",
   "private": true,
   "scripts": {
-    "start": "node ./src/index.js",
+    "start": "node ./src/index.js | pino-pretty",
     "dev": "nodemon -L src/heimdallr.js",
     "lint": "standard --fix"
   },
@@ -19,6 +19,7 @@
     "mongoose": "^7.0.0",
     "picocolors": "^1.0.0",
     "pino": "^8.11.0",
+    "pino-pretty": "^10.0.0",
     "wokcommands": "^2.1.0"
   },
   "devDependencies": {
