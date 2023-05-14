@@ -2,7 +2,6 @@ const { Client, IntentsBitField } = require('discord.js')
 const path = require('path')
 const mongoose = require('mongoose')
 const JC = require('wokcommands')
-const pc = require('picocolors')
 const logger = require('./util/logger')
 
 require('dotenv/config')

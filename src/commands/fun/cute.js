@@ -1,4 +1,4 @@
-const { CommandType } = require('wokcommands')
+const { CommandType, CooldownTypes } = require('wokcommands')
 const { EmbedBuilder } = require('discord.js')
 
 const funHelper = require('../../util/funHelper')
@@ -10,6 +10,10 @@ module.exports = {
   minArgs: 1,
   expectedArgs: ' Cuteness type.',
   testOnly: false,
+  cooldown: {
+    type: CooldownTypes.perUser,
+    duration: '1 m'
+  },
   options: [
     {
       name: 'type',

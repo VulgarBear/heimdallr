@@ -98,6 +98,9 @@ const kitsu = async (type, name) => {
   }
 }
 
+// TMDB Helper
+// Fetches information about a movie, series, or actor
+
 const tmdb = async (type, name) => {
   if (type === 'movie') {
     const movieSearch = await axios.get(
@@ -137,10 +140,18 @@ const tmdb = async (type, name) => {
   }
 }
 
+const bored = async () => {
+  const boredSearch = await axios.get('http://www.boredapi.com/api/activity/')
+
+  const boredData = boredSearch.data.activity
+  return boredData
+}
+
 module.exports = {
   eightBall,
   insult,
   cute,
   kitsu,
-  tmdb
+  tmdb,
+  bored
 }
