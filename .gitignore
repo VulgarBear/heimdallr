@@ -2,3 +2,4 @@
 /node_modules
 /yarn-error.log
 /docker/docker-compose.yml
+/prod.env

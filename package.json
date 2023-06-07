@@ -1,6 +1,6 @@
 {
-  "name": "Heimdallr",
-  "version": "0.8.0",
+  "name": "heimdallr",
+  "version": "1.0.0",
   "description": "Multipurpose discord server bot.",
   "main": "src/index.js",
   "author": "VulgarBear",
@@ -19,7 +19,7 @@
     "mongoose": "^7.1.1",
     "pino": "^8.14.1",
     "pino-pretty": "^10.0.0",
-    "wokcommands": "2.1.6"
+    "wokcommands": "^2.1.7"
   },
   "devDependencies": {
     "standard": "^17.0.0"
