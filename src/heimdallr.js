@@ -7,7 +7,11 @@ const logger = require('./util/logger')
 require('dotenv/config')
 
 const client = new Client({
-  intents: [IntentsBitField.Flags.Guilds]
+  intents: [
+    IntentsBitField.Flags.Guilds,
+    IntentsBitField.Flags.GuildModeration,
+    IntentsBitField.Flags.GuildBans
+  ]
 })
 
 client.on('ready', async () => {
