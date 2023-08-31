@@ -23,7 +23,7 @@ module.exports = {
 
     // Using help call API
     try {
-      const nsfwData = await nsfwHelper.nekoBot('ass')
+      const nsfwData = await nsfwHelper.nekoBot('boobs')
 
       const nsfwEmbed = new EmbedBuilder()
         .setTitle("Image didn't load click here.")
