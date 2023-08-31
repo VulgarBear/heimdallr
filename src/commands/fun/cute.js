@@ -12,16 +12,15 @@ module.exports = {
   testOnly: false,
   cooldown: {
     type: CooldownTypes.perUser,
-    duration: '1 m'
+    duration: '1 m',
   },
   options: [
     {
       name: 'type',
-      description:
-        'What kind of cuteness are your looking for? (dog, cat, fox, or bird)',
+      description: 'What kind of cuteness are your looking for? (dog, cat, fox, or bird)',
       required: true,
-      type: 3
-    }
+      type: 3,
+    },
   ],
 
   callback: async ({ interaction, args }) => {
@@ -55,14 +54,14 @@ module.exports = {
 
       interaction.reply({
         content: '',
-        embeds: [cuteEmbed]
+        embeds: [cuteEmbed],
       })
     } catch (err) {
       interaction.reply({
         content: 'Something went wrong!',
-        ephemeral: true
+        ephemeral: true,
       })
       console.log(err)
     }
-  }
+  },
 }

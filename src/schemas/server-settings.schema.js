@@ -2,7 +2,7 @@ const { Schema, model, models } = require('mongoose')
 
 const reqString = {
   type: String,
-  required: true
+  required: true,
 }
 
 const serverSettingsSchema = new Schema({
@@ -15,8 +15,8 @@ const serverSettingsSchema = new Schema({
   muteRole: reqString,
   nsfwAllowed: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 })
 
 const name = 'server-settings'

@@ -1,0 +1,19 @@
+/* eslint-disable */
+{
+  "extends": [
+    "prettier"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": ["error", { singleQuote: true }],
+    "quotes": [2, "single", { "avoidEscape": true }]
+  },
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "eslintIgnore": [
+    "coverage", "node_modules"
+  ]
+}

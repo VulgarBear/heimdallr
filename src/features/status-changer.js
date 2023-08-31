@@ -1,8 +1,7 @@
 const { ActivityType } = require('discord.js')
 const statusSchema = require('../schemas/statuses.schema')
 
-const getSeconds = (duration) =>
-  +duration.split(':').reduce((acc, time) => 60 * acc + parseInt(time))
+const getSeconds = (duration) => +duration.split(':').reduce((acc, time) => 60 * acc + parseInt(time))
 
 const formatStatus = (status) => {
   status.duration = +getSeconds(status.duration)
@@ -28,14 +27,14 @@ module.exports = async (_, client) => {
     } else if (operationType === 'update') {
       const {
         documentKey: { _id },
-        updateDescription: { updatedFields }
+        updateDescription: { updatedFields },
       } = data
 
       statuses = statuses.map((status) => {
         if (String(status._id) === String(_id)) {
           status = {
             ...status,
-            ...updatedFields
+            ...updatedFields,
           }
         }
 
@@ -43,7 +42,7 @@ module.exports = async (_, client) => {
       })
     } else if (operationType === 'delete') {
       const {
-        documentKey: { _id }
+        documentKey: { _id },
       } = data
 
       statuses = statuses.filter((status) => String(status._id) !== String(_id))
@@ -55,7 +54,7 @@ module.exports = async (_, client) => {
   const updateStatuses = () => {
     if (statuses.length === 0) {
       client.user.setPresence({
-        activities: null
+        activities: null,
       })
 
       setTimeout(updateStatuses, 1000 * 10)
@@ -71,9 +70,9 @@ module.exports = async (_, client) => {
       activities: [
         {
           name: status.text,
-          type: ActivityType.valueOf()[status.activityType]
-        }
-      ]
+          type: ActivityType.valueOf()[status.activityType],
+        },
+      ],
     })
 
     ++index

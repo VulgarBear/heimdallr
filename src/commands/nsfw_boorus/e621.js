@@ -15,8 +15,8 @@ module.exports = {
       name: 'search-term',
       description: 'What content would you like to search?',
       required: true,
-      type: 3
-    }
+      type: 3,
+    },
   ],
 
   callback: async ({ interaction, args }) => {
@@ -29,7 +29,7 @@ module.exports = {
     if (!interaction.channel.nsfw) {
       return interaction.reply({
         content: 'This command must be run in a NSFW channel!',
-        ephemeral: true
+        ephemeral: true,
       })
     }
 
@@ -43,19 +43,19 @@ module.exports = {
         .setColor(process.env.EMBED)
         .setImage(nsfwData.fileUrl)
         .setFooter({
-          text: `Requested by ${author.user.username} | e621.net API`
+          text: `Requested by ${author.user.username} | e621.net API`,
         })
 
       interaction.reply({
         content: '',
-        embeds: [nsfwEmbed]
+        embeds: [nsfwEmbed],
       })
     } catch (err) {
       interaction.reply({
         content: 'Something went wrong!',
-        ephemeral: true
+        ephemeral: true,
       })
       console.log(err)
     }
-  }
+  },
 }

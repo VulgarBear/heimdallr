@@ -18,14 +18,14 @@ module.exports = {
       const boredData = await funHelper.bored()
 
       interaction.reply({
-        content: `${author} ` + boredData
+        content: `${author} ` + boredData,
       })
     } catch (err) {
       interaction.reply({
         content: 'Something went wrong!',
-        ephemeral: true
+        ephemeral: true,
       })
       logger.error(err)
     }
-  }
+  },
 }

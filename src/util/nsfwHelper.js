@@ -6,8 +6,8 @@ const Booru = require('booru')
 const nekoBot = async (type) => {
   const res = await axios.get('https://nekobot.xyz/api//image', {
     params: {
-      type
-    }
+      type,
+    },
   })
 
   const searchData = res.data
@@ -28,7 +28,7 @@ const waifu = async (type) => {
 const e621 = async (searchTerm) => {
   const res = await Booru.search('e621.net', searchTerm, {
     limit: 1,
-    random: true
+    random: true,
   })
 
   const searchData = await res.posts[0]
@@ -40,7 +40,7 @@ const e621 = async (searchTerm) => {
 const gelbooru = async (searchTerm) => {
   const res = await Booru.search('gelbooru', searchTerm, {
     limit: 1,
-    random: true
+    random: true,
   })
 
   const searchData = await res.posts[0]
@@ -52,7 +52,7 @@ const gelbooru = async (searchTerm) => {
 const r34 = async (searchTerm) => {
   const res = await Booru.search('rule34', searchTerm, {
     limit: 1,
-    random: true
+    random: true,
   })
 
   const searchData = await res.posts[0]
@@ -64,5 +64,5 @@ module.exports = {
   waifu,
   e621,
   gelbooru,
-  r34
+  r34,
 }

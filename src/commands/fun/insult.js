@@ -13,8 +13,8 @@ module.exports = {
       name: 'user',
       description: '@user that you would like to insult',
       required: true,
-      type: 6
-    }
+      type: 6,
+    },
   ],
 
   callback: async ({ interaction }) => {
@@ -24,8 +24,8 @@ module.exports = {
 
     if (interaction) {
       interaction.reply({
-        content: String(`${member} ` + insult)
+        content: String(`${member} ` + insult),
       })
     }
-  }
+  },
 }

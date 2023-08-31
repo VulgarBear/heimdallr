@@ -18,14 +18,12 @@ const search = async (game) => {
       key: ITAD_KEY,
       q: game,
       region: 'us',
-      country: 'US'
-    }
+      country: 'US',
+    },
   })
 
   const searchData = res.data.data
-  const list =
-    searchData &&
-    searchData.list.sort((a, b) => a.title.length - b.title.length)
+  const list = searchData && searchData.list.sort((a, b) => a.title.length - b.title.length)
 
   return list
 }
@@ -39,8 +37,8 @@ const getGameId = async (game) => {
   const res = await axios.get(`${BASE_URL}/v02/game/plain/`, {
     params: {
       key: ITAD_KEY,
-      title: game
-    }
+      title: game,
+    },
   })
 
   const plainData = res.data.data
@@ -59,8 +57,8 @@ const getGameInfo = async (gameId) => {
     params: {
       key: ITAD_KEY,
       plains: gameId,
-      optional: 'metacritic'
-    }
+      optional: 'metacritic',
+    },
   })
 
   const infoData = res.data.data && res.data.data[gameId]
@@ -80,8 +78,8 @@ const getGameData = async (gameId, ignoredSellers) => {
       plains: gameId,
       region: 'us',
       country: 'US',
-      exclude: ignoredSellers.join(',')
-    }
+      exclude: ignoredSellers.join(','),
+    },
   })
 
   const gameData = res.data.data && res.data.data[gameId]
@@ -100,8 +98,8 @@ const getHistoricalLow = async (gameId) => {
       key: ITAD_KEY,
       plains: gameId,
       region: 'us',
-      country: 'US'
-    }
+      country: 'US',
+    },
   })
 
   const gameData = res.data.data && res.data.data[gameId]
@@ -118,8 +116,8 @@ const getSellerId = async (seller) => {
   const res = await axios.get(`${BASE_URL}/v02/web/stores/`, {
     params: {
       region: 'us',
-      country: 'US'
-    }
+      country: 'US',
+    },
   })
 
   const sellers = res.data && res.data.data
@@ -135,5 +133,5 @@ module.exports = {
   getGameInfo,
   getGameData,
   getHistoricalLow,
-  getSellerId
+  getSellerId,
 }

@@ -23,7 +23,7 @@ const eightBall = async () => {
     'My reply is no',
     'My sources say no',
     'Outlook not so good',
-    'Very doubtful'
+    'Very doubtful',
   ]
 
   const answer = answers[Math.floor(Math.random() * answers.length)]
@@ -40,24 +40,18 @@ const cute = async (type) => {
   if (type === 'dog') {
     const dogSearch = await axios.get('https://random.dog/doggos')
     const dogData = dogSearch.data
-    const dogRanData =
-      'https://random.dog/' +
-      dogData[Math.floor(Math.random() * dogData.length)]
+    const dogRanData = 'https://random.dog/' + dogData[Math.floor(Math.random() * dogData.length)]
     return dogRanData
   } else if (type === 'fox') {
     const foxSearch = await axios.get('https://randomfox.ca/floof/')
     const foxData = foxSearch.data.image
     return foxData
   } else if (type === 'cat') {
-    const catSearch = await axios.get(
-      'https://api.thecatapi.com/v1/images/search'
-    )
+    const catSearch = await axios.get('https://api.thecatapi.com/v1/images/search')
     const catData = catSearch.data[0].url
     return catData
   } else if (type === 'bird') {
-    const birdSearch = await axios.get(
-      'http://shibe.online/api/birds?&urls=true&httpsUrls=true'
-    )
+    const birdSearch = await axios.get('http://shibe.online/api/birds?&urls=true&httpsUrls=true')
     const birdData = birdSearch.data[0]
     return birdData
   } else {
@@ -68,9 +62,7 @@ const cute = async (type) => {
 // Insult Helper
 // Generates random insult from Evil Insult API
 const insult = async () => {
-  const insultSearch = await axios.get(
-    'https://evilinsult.com/generate_insult.php?lang=en&type=json'
-  )
+  const insultSearch = await axios.get('https://evilinsult.com/generate_insult.php?lang=en&type=json')
   const insultData = insultSearch.data.insult
   return insultData
 }
@@ -82,9 +74,7 @@ const kitsu = async (type, name) => {
   const MANGA_URL = 'https://kitsu.io/api/edge/manga'
 
   if (type === 'anime') {
-    const res = await axios.get(
-      `http://kitsu.io/api/edge/anime?filter[text]=${name}&page[limit]=1&json=true`
-    )
+    const res = await axios.get(`http://kitsu.io/api/edge/anime?filter[text]=${name}&page[limit]=1&json=true`)
 
     const searchData = res.data.data[0]
     return searchData
@@ -94,7 +84,6 @@ const kitsu = async (type, name) => {
     const searchData = res.data.data[0]
     return searchData
   } else {
-
   }
 }
 
@@ -115,11 +104,7 @@ const tmdb = async (type, name) => {
     return movieData
   } else if (type === 'series') {
     const seriesSearch = await axios.get(
-      'https://api.themoviedb.org/3/search/tv?api_key=' +
-        process.env.TMDB +
-        '&query=' +
-        name +
-        '&page=1'
+      'https://api.themoviedb.org/3/search/tv?api_key=' + process.env.TMDB + '&query=' + name + '&page=1'
     )
 
     const seriesData = seriesSearch.data.results[0]
@@ -136,7 +121,6 @@ const tmdb = async (type, name) => {
     const actorData = actorSearch.data.results[0]
     return actorData
   } else {
-
   }
 }
 
@@ -153,5 +137,5 @@ module.exports = {
   cute,
   kitsu,
   tmdb,
-  bored
+  bored,
 }

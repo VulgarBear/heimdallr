@@ -15,8 +15,8 @@ module.exports = {
       name: 'game',
       description: 'What game are you searching for a deal on?',
       type: 3,
-      required: true
-    }
+      required: true,
+    },
   ],
 
   callback: async ({ interaction }) => {
@@ -45,7 +45,7 @@ module.exports = {
       'wingamestore',
       'gamesplanetde',
       'gamesload',
-      'gamersgate'
+      'gamersgate',
     ]
 
     const author = await interaction.guild.members.fetch(interaction.user.id)
@@ -64,14 +64,12 @@ module.exports = {
             .sort()
 
           interaction.reply({
-            content: `Could not lookup ${gameName} \n\n Here are some suggestions: \n ${titles.join(
-              '\n'
-            )}`
+            content: `Could not lookup ${gameName} \n\n Here are some suggestions: \n ${titles.join('\n')}`,
           })
         } else {
           interaction.reply({
             content: `Could not look up ${gameName}. Did you spell it correctly?`,
-            ephemeral: true
+            ephemeral: true,
           })
           return
         }
@@ -85,15 +83,13 @@ module.exports = {
 
       if (!gameData || list.length === 0) {
         interaction.reply({
-          content: `Currently unable to find deal for ${gameName}`
+          content: `Currently unable to find deal for ${gameName}`,
         })
         return
       }
 
       const sellers = list.map((x) => `[${x.shop.name}](${x.url})`)
-      const newPrices = list.map(
-        (x) => `${toCurrency(x.price_new)} (-${x.price_cut}%)`
-      )
+      const newPrices = list.map((x) => `${toCurrency(x.price_new)} (-${x.price_cut}%)`)
       const oldPrices = list.map((x) => toCurrency(x.price_old))
       const histLowData = await itadAPI.getHistoricalLow(gameId)
 
@@ -111,12 +107,12 @@ module.exports = {
 
       interaction.reply({
         content: '',
-        embeds: [dealEmbed]
+        embeds: [dealEmbed],
       })
     } catch (err) {
       interaction.reply({
         content: 'Something went wrong!',
-        ephemeral: true
+        ephemeral: true,
       })
       return console.log(err)
     }
@@ -129,10 +125,10 @@ module.exports = {
      * @param {number} num
      * @returns {string}
      */
-    function toCurrency (num) {
+    function toCurrency(num) {
       const price = Number.parseFloat(num).toFixed(2)
 
       return price > 0 ? `$${price}` : 'FREE'
     }
-  }
+  },
 }

@@ -15,8 +15,8 @@ module.exports = {
       name: 'question',
       description: 'The question you would like to ask.',
       required: true,
-      type: 3
-    }
+      type: 3,
+    },
   ],
 
   callback: async ({ interaction, args }) => {
@@ -31,15 +31,12 @@ module.exports = {
     const questionEmbed = new EmbedBuilder()
       .setColor(process.env.EMBED)
       .setTitle('The Magic 8-Ball')
-      .addFields(
-        { name: 'Question Asked:', value: question },
-        { name: 'Your Answer:', value: answer }
-      )
+      .addFields({ name: 'Question Asked:', value: question }, { name: 'Your Answer:', value: answer })
       .setFooter({ text: `Requested by ${author.user.username}` })
 
     interaction.reply({
       content: '',
-      embeds: [questionEmbed]
+      embeds: [questionEmbed],
     })
-  }
+  },
 }

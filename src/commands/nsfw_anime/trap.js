@@ -17,7 +17,7 @@ module.exports = {
     if (!interaction.channel.nsfw) {
       return interaction.reply({
         content: 'This command must be run in a NSFW channel!',
-        ephemeral: true
+        ephemeral: true,
       })
     }
 
@@ -31,19 +31,19 @@ module.exports = {
         .setColor(process.env.EMBED)
         .setImage(nsfwData.url)
         .setFooter({
-          text: `Requested by ${author.user.username} | Nekobot API`
+          text: `Requested by ${author.user.username} | Nekobot API`,
         })
 
       interaction.reply({
         content: '',
-        embeds: [nsfwEmbed]
+        embeds: [nsfwEmbed],
       })
     } catch (err) {
       interaction.reply({
         content: 'Something went wrong!',
-        ephemeral: true
+        ephemeral: true,
       })
       console.log(err)
     }
-  }
+  },
 }

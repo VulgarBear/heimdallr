@@ -1,3 +1,10 @@
 const pino = require('pino')
-const logger = pino()
-module.exports = logger
+
+module.exports = pino({
+  level: process.env.PINO_LOG_LEVEL || 'info',
+  formatters: {
+    level: (label) => {
+      return { level: label.toUpperCase() }
+    },
+  },
+})
