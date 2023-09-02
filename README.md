@@ -36,7 +36,12 @@ Heimdallr is an all in one Discord bot built with server functionality in mind. 
 
 ## Features
 
-**TBA**
+**Types of Commands:**
+
+- Fun: _8ball, cute pics, reaction gifs, insults, etc._
+- Moderation: _Not currently available_.
+- NSFW: _(only useable in NSFW channels)_
+- Query: _game deals, imdb, anime/manga info_
 
 ## Guild Setup
 
