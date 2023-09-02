@@ -4,15 +4,18 @@
     <a href="https://github.com/VulgarBear/Heimdallr"> <img src="./assets/images/Heim_Pixel.png" /> </a>
   </p>
   <p>
-  <a href="https://discord.gg/E9cJjvw"><img src="https://discordapp.com/api/guilds/540671346728763392/widget.png?style=shield" alt="Discord Server"></a>
-  <img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/vulgarbear/heimdallr">
-  <img alt="Docker Image Version (latest by date)" src="https://img.shields.io/docker/v/vulgarbear/heimdallr?label=docker%20ver.">
-  <img alt="Docker Image Size with architecture (latest by date/latest semver)" src="https://img.shields.io/docker/image-size/vulgarbear/heimdallr">
 
+![Discord](https://img.shields.io/discord/1145899090765434900?label=discord)
+![GitHub](https://img.shields.io/github/license/vulgarbear/heimdallr)
+<img alt="Docker Image Version (latest by date)" src="https://img.shields.io/docker/v/vulgarbear/heimdallr?label=docker%20ver.">
+![Ghcr.io Size](https://ghcr-badge.egpl.dev/vulgarbear/heimdallr/size)
 
-  <img alt="CircleCI" src="https://img.shields.io/circleci/build/github/VulgarBear/Heimdallr">
-  <img alt="CodeFactor Grade" src="https://img.shields.io/codefactor/grade/github/vulgarbear/heimdallr">
-  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/vulgarbear/heimdallr">
+[![Image Build](https://github.com/VulgarBear/heimdallr/actions/workflows/publish.yml/badge.svg)](https://github.com/VulgarBear/heimdallr/actions/workflows/publish.yml)
+[![CodeQL](https://github.com/VulgarBear/heimdallr/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/VulgarBear/heimdallr/actions/workflows/github-code-scanning/codeql)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/vulgarbear/heimdallr/master)
+[![Made with Docker](https://img.shields.io/badge/Made_with-Docker-blue?logo=docker&logoColor=white)](https://www.docker.com/ 'Go to Docker homepage')
+[![Made with GH Actions](https://img.shields.io/badge/CI-GitHub_Actions-blue?logo=github-actions&logoColor=white)](https://github.com/features/actions 'Go to GitHub Actions homepage')
+
   </p>
 </div>
 
