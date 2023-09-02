@@ -7,7 +7,7 @@
 
 ![Discord](https://img.shields.io/discord/1145899090765434900?label=discord)
 ![GitHub](https://img.shields.io/github/license/vulgarbear/heimdallr)
-<img alt="Docker Image Version (latest by date)" src="https://img.shields.io/docker/v/vulgarbear/heimdallr?label=docker%20ver.">
+![GitHub tag (with filter)](https://img.shields.io/github/v/tag/vulgarbear/heimdallr?label=version)
 ![Ghcr.io Size](https://ghcr-badge.egpl.dev/vulgarbear/heimdallr/size)
 
 [![Image Build](https://github.com/VulgarBear/heimdallr/actions/workflows/publish.yml/badge.svg)](https://github.com/VulgarBear/heimdallr/actions/workflows/publish.yml)
