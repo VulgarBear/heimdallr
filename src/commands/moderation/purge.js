@@ -1,6 +1,8 @@
 const { ContextMenuCommandBuilder, PermissionFlagsBits } = require('discord.js')
 const { CommandType } = require('wokcommands')
 
+const logger = require('../../util/logger')
+
 module.exports = {
   type: CommandType.SLASH,
   description: 'Clear/purge user commands in chat.',
@@ -8,7 +10,7 @@ module.exports = {
   permissions: [PermissionFlagsBits.ManageMessages],
   minArgs: 1,
   expectedArgs: 'Number of messages to delete',
-  testOnly: false,
+  testOnly: process.env.DEV_MODE === 'TRUE',
   options: [
     {
       name: 'amount',
@@ -43,6 +45,7 @@ module.exports = {
           content: String('An error occured, please make sure there are no messages over 14 days old included.'),
           ephemeral: true,
         })
+        logger.error(err, 'Purge call command failed to run.')
       }
     }
   },

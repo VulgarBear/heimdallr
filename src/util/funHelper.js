@@ -131,6 +131,13 @@ const bored = async () => {
   return boredData
 }
 
+const nekosBest = async (apiEnd) => {
+  const res = await axios.get(`https://nekos.best/api/v2/${apiEnd}`)
+
+  const nekosData = res.data.results[0]
+  return nekosData
+}
+
 module.exports = {
   eightBall,
   insult,
@@ -138,4 +145,5 @@ module.exports = {
   kitsu,
   tmdb,
   bored,
+  nekosBest,
 }

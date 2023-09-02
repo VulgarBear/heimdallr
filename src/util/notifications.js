@@ -17,11 +17,11 @@ const nftyNotify = async (nftyData, nftyTag) => {
   axios
     .request(config)
     .then((response) => {
-      logger.info('Ready notification was successful.')
+      logger.info('Heim notification was successful.')
     })
     .catch((error) => {
       console.log(error)
-      logger.error(error, 'Ready notification failed to send.')
+      logger.error(error, 'Heim notification failed to send.')
     })
 }
 

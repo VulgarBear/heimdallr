@@ -9,7 +9,8 @@
   "scripts": {
     "start": "node ./src/index.js | npx pino-pretty",
     "dev": "nodemon -L src/heimdallr.js | npx pino-pretty",
-    "lint": "standard --fix"
+    "lint": "standard --fix",
+    "remove-commands": "node ./scripts/commandDelete.js"
   },
   "dependencies": {
     "axios": "1.5.0",
