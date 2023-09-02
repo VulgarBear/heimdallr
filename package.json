@@ -10,7 +10,8 @@
     "start": "node ./src/index.js | npx pino-pretty",
     "dev": "nodemon -L src/heimdallr.js | npx pino-pretty",
     "lint": "standard --fix",
-    "remove-commands": "node ./scripts/commandDelete.js"
+    "remove-commands": "node ./scripts/commandDelete.js",
+    "cm": "git cz"
   },
   "dependencies": {
     "axios": "1.5.0",
@@ -23,8 +24,19 @@
     "wokcommands": "2.1.9"
   },
   "devDependencies": {
+    "@ambimax/semantic-release-composer": "ambimax/semantic-release-composer",
+    "@commitlint/cli": "^17.7.1",
+    "@semantic-release/changelog": "semantic-release/changelog",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "semantic-release/github",
+    "@semantic-release/npm": "semantic-release/npm",
+    "@semantic-release/release-notes-generator": "semantic-release/release-notes-generator",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.0"
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.3",
+    "semantic-release": "^21.1.1"
   }
 }
