@@ -1,7 +1,8 @@
-const { prefix } = require('../../../features/button-roles')
+const { prefix } = require('../../../schemas/button-role.schema')
 
 module.exports = async (interaction) => {
   const { customId, member, guild } = interaction
+  console.log('Button-Roles Interaction')
 
   if (!member || !interaction.isButton() || !customId.startsWith(prefix)) {
     return
@@ -12,8 +13,7 @@ module.exports = async (interaction) => {
   const role = await guild.roles.fetch(roleId)
   if (!role) {
     interaction.reply({
-      content:
-        'The role associated with this button does not exist. Please report this to a staff member in this server.',
+      content: `The role associated with this button does not exist. Please report this to a staff member in this server.`,
       ephemeral: true,
     })
     return

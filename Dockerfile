@@ -1,10 +1,12 @@
-FROM node:alpine
+FROM node:latest
 
-WORKDIR /usr/heimdallr
-COPY package*.json ./
+RUN mkdir -p /usr/src/bot
+WORKDIR /usr/src/bot
+
+COPY . /usr/src/bot
 
 RUN npm install
 
-COPY . .
+COPY . /usr/src/bot
 
 CMD ["npm", "start"]
