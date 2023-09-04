@@ -16,6 +16,7 @@ const buttonRoleSchema = new Schema({
       buttonText: reqString,
       buttonStyle: reqString,
       buttonEmoji: reqString,
+      link: String,
     },
   ],
 

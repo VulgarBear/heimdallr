@@ -13,11 +13,8 @@ module.exports = async (_, client) => {
     return formatStatus(status._doc)
   })
   let index = 0
-  // console.log(statuses)
 
   statusSchema.watch().on('change', async (data) => {
-    console.log(data)
-
     const { operationType } = data
 
     if (operationType === 'insert') {
@@ -47,8 +44,6 @@ module.exports = async (_, client) => {
 
       statuses = statuses.filter((status) => String(status._id) !== String(_id))
     }
-
-    // console.log(statuses)
   })
 
   const updateStatuses = () => {

@@ -1,6 +1,4 @@
-const axios = require('axios')
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder } = require('discord.js')
-const api = require('../util/api')
 const buttonRoleSchema = require('../schemas/button-role.schema')
 
 const prefix = 'button-roles-'
@@ -9,7 +7,6 @@ module.exports = async (_, client) => {
   buttonRoleSchema.watch().on('change', async (data) => {
     const { _id } = data.documentKey
     const document = await buttonRoleSchema.findById(_id)
-    console.log(document)
 
     const { channelId, text, hexColor, buttons, messageId } = document
     const channel = await client.channels.fetch(channelId)
@@ -25,15 +22,17 @@ module.exports = async (_, client) => {
         row = new ActionRowBuilder()
       }
 
-      const { roleId, buttonText, buttonStyle, buttonEmoji } = buttons[a]
+      const { roleId, buttonText, buttonStyle, buttonEmoji, link } = buttons[a]
 
-      row.addComponents(
-        new ButtonBuilder()
-          .setCustomId(`${prefix}${roleId}`)
-          .setLabel(buttonText)
-          .setStyle(buttonStyle)
-          .setEmoji(buttonEmoji)
-      )
+      const buttonBuilder = new ButtonBuilder().setLabel(buttonText).setStyle(buttonStyle).setEmoji(buttonEmoji)
+
+      if (buttonStyle === 'Link') {
+        buttonBuilder.setURL(link)
+      } else {
+        buttonBuilder.setCustomId(`${prefix}${roleId}`)
+      }
+
+      row.addComponents(buttonBuilder)
     }
 
     if (row.components.length > 0) {
@@ -42,6 +41,7 @@ module.exports = async (_, client) => {
 
     if (messageId) {
       try {
+        console.log('Message fetch fired')
         const message = await channel.messages.fetch(messageId)
 
         message.edit({
@@ -50,15 +50,20 @@ module.exports = async (_, client) => {
         })
 
         return
-      } catch (ignored) {}
+      } catch (err) {
+        console.log(err)
+      }
+    } else {
+      console.log('Message send fired')
+      const message = await channel.send({
+        embeds: [embed],
+        components,
+      })
+
+      await buttonRoleSchema.updateOne({ _id }, { messageId: message.id })
     }
 
-    const message = await channel.send({
-      embeds: [embed],
-      components,
-    })
-
-    await buttonRoleSchema.updateOne({ _id }, { messageId: message.id })
+    // await buttonRoleSchema.updateOne({ _id }, { messageId: message.id })
   })
 }
 

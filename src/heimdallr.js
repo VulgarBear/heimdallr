@@ -1,6 +1,8 @@
 const { Client, IntentsBitField } = require('discord.js')
 const path = require('path')
 const JC = require('wokcommands')
+const mongoose = require('mongoose')
+
 const logger = require('./util/logger')
 const notify = require('./util/notifications')
 
@@ -13,7 +15,14 @@ const client = new Client({
 })
 
 client.on('ready', async () => {
-  logger.info('Heimdallr has begun watching')
+  logger.info('Heimdallr has begun watching...')
+
+  mongoose.set('strictQuery', false)
+  await mongoose
+    .connect(process.env.MONGO_URI, {
+      keepAlive: true,
+    })
+    .then(logger.info('Connected to Database...'))
 
   new JC({
     client,
@@ -41,7 +50,7 @@ client.on('ready', async () => {
     const nftyTag = 'loudspeaker'
     notify.nftyNotify(nftyData, nftyTag)
   } else {
-    return logger.info('NFTY server not found or DEV_MODE enabled.')
+    return logger.info('NTFY server not found or DEV_MODE enabled.')
   }
 })
 

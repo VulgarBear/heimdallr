@@ -3,3 +3,5 @@
 /yarn-error.log
 /docker/docker-compose.yml
 /prod.env
+/yarn.lock
+/package.lock
