@@ -1,7 +1,7 @@
 /.env
+/docker/.env
 /node_modules
 /yarn-error.log
 /docker/docker-compose.yml
 /prod.env
-/yarn.lock
-/package.lock
+/package-lock.json

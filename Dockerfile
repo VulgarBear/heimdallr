@@ -1,12 +1,9 @@
-FROM node:latest
+FROM node:lts-bookworm
 
-RUN mkdir -p /usr/src/bot
-WORKDIR /usr/src/bot
-
-COPY . /usr/src/bot
+RUN mkdir /bot
+WORKDIR /bot
+COPY . /bot
 
 RUN npm install
-
-COPY . /usr/src/bot
 
 CMD ["npm", "start"]
