@@ -3,6 +3,5 @@ npm-debug.log
 .env
 /docker/docker-compose.yml
 yarn-error.log
-yarn.lock
 .github
-.package-lock.json
+package-lock.json

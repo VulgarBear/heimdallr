@@ -1,9 +1,9 @@
-FROM node:lts-bookworm
+FROM node:lts-bookworm-slim
 
 RUN mkdir /bot
 WORKDIR /bot
 COPY . /bot
 
-RUN npm install
+RUN yarn install && yarn cache clean
 
-CMD ["npm", "start"]
+CMD ["yarn", "start"]
